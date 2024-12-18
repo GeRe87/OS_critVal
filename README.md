@@ -4,10 +4,10 @@
 This analysis investigates the critical order space, a statistical metric, and its use in determining whether a dataset belongs to a single normal distribution. The method leverages the maximum empirical order space (largest gap between neighboring sorted data points) to identify natural breaks in a dataset. These breaks can indicate potential splits in the data.
 
 ## Definition of Order Space
-The order space is the gap between neighboring values in a sorted dataset. For a given dataset, these gaps provide information about the data distribution. The largest order space, referred to as the maximum empirical order space, is of particular importance as it can reveal significant deviations from a uniform structure, which is expected under normality.
+The order space is the gap between neighboring values in a sorted dataset. For a given dataset, these gaps provide information about the data distribution. The largest order space, the maximum empirical order space, is particularly important as it can reveal significant deviations from a uniform structure, which is expected under normality.
 
 ### Critical Order Space
-The critical order space is the 99th percentile of the maximum order space observed over multiple Monte Carlo simulations. This value provides a threshold to determine whether the observed maximum gap in a dataset is statistically significant under the assumption of normality.
+The critical order space is the 99th percentile of the maximum order space observed over multiple Monte Carlo simulations. This value provides a threshold to determine whether the observed maximum gap in a dataset is statistically significant under the normality assumption.
 
 ## Statistical Test Based on Critical Order Space
 A statistical test was implemented to assess if a dataset belongs to a single normal distribution:
@@ -25,11 +25,11 @@ This approach allows for identifying natural breaks and evaluating the normality
 
 2. **Modeling Critical Values:**
    - Critical values for each sample size were normalized by dividing by the standard deviation (`s`).
-   - A model function \( \text{crit\_val}(n) = a + \frac{b}{\sqrt{\log(n)}} \) was fitted to these values.
-   - The parameters \( a \) and \( b \) were estimated using non-linear least squares.
+   - A model function $$os_{crit}(n) = a + \frac{b}{\sqrt{\log(n)}}$$ was fitted to these values.
+   - The parameters $$a$$ and $$b$$ were estimated using non-linear least squares.
 
 3. **Repetition for Parameter Distribution:**
-   - The entire procedure was repeated 500 times to assess the variability of \( a \) and \( b \).
+   - The entire procedure was repeated 500 times to assess the variability of $$a$$ and $$b$$.
    - Normality tests were performed on the parameter distributions to compute confidence intervals.
 
 ## Results
